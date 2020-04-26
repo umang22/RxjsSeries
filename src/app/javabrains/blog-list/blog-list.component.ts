@@ -11,40 +11,44 @@ import {BlogDataService} from "../service/blog-data.service";
 })
 export class BlogListComponent implements OnInit {
 
-  //maneira antiga, para quando não tinha paginação
+  // old way, for when there was no pagination
+
   //blogPosts: BlogPost[] = [];
 
-  //neste novo caso, a variavel blogpost é um array bidimensional
-  //o primeiro [] é a pagina e o segundo são os posts do blog
+  // in this new case, the blogpost variable is a two-dimensional array
+  // the first [] is the page and the second is the blog posts
   blogPosts: BlogPost[][];
 
   currentPage: number;
 
-  //uma diferença entre o meu exemplo, e o do cara do curso, é que no curso o @ViewChild dele só recebe um argumento
-  //para funcionar aqui, na verdade exigia dois argumentos, então depois de pesquisar passei um NULL
-  //a linha comentada abaixo, vai funcionar mas só vai expandir a primeira linha do post
-  //  @ViewChild('tile', null) blogPostTileComponent: BlogPostTileComponent;
-  //e como não é uma view somente, tem que mudar a notação de @ViewChild para @ViewChildren
-  //e mudou o nome de blogPostTileCompenent para blogPostTileComponents porque não vai ser mais só um
+  // a difference between my example, and the guy from the course, is that in the course his @ViewChild only receives one argument
+  // to work here, it actually required two arguments, so after searching I passed a NULL
+  // the commented line below will work but will only expand the first line of the post
+  // @ViewChild ('tile', null) blogPostTileComponent: BlogPostTileComponent;
+  // and since it is not a view only, you have to change the notation from @ViewChild to @ViewChildren
+  // and changed the name from blogPostTileComponent to blogPostTileComponents because it will no longer be just one
+
   @ViewChildren('tile', null) blogPostTileComponents: QueryList<BlogPostTileComponent>;
 
-  //o trecho de instanciar as variaveis poderia ser feito no construtor, e iria funcionar perfeitamente
-  //não foi feito assim, por boas práticas. O construtor deve ser deixado para fazer injeção de
-  //dependências, lighweight
 
-  //depois de tirar o blogdata de hardcoded para o blog-data-service, tem que injetar a dependencia no construtor
+// the section of instantiating variables could be done in the constructor, and it would work perfectly
+  // it was not done that way, for good practices. The builder must be left to inject
+  // dependencies, lightweight
+
+  // after removing the hardcoded blogdata for the blog-data-service, you have to inject the dependency into the constructor
   constructor(private blogDataService: BlogDataService) {
   }
 
   ngOnInit() {
 
-    //esta é uma manera de instanciar a classe blog post
+
+// this is a way to instantiate the blog post class
     /* let blog1 = new BlogPost('Blog Post 1', 'Summary of post 1');
     let blog2 = new BlogPost('Blog Post 2', 'Summary of post 2');
     let blog3 = new BlogPost('Blog Post 3', 'Summary of post 3');
     let blog4 = new BlogPost('Blog Post 4', 'Summary of post 4'); */
 
-    //e para trabalhar com paginação, este modelo de dados não vai servir, tem que trocar
+    // and to work with pagination, this data model will not do, you have to change
     /* this.blogPosts.push(new BlogPost('Blog Post 1', 'Summary of post 1'));
     this.blogPosts.push(new BlogPost('Blog Post 2', 'Summary of post 2'));
     this.blogPosts.push(new BlogPost('Blog Post 3', 'Summary of post 3'));

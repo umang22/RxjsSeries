@@ -1,0 +1,21 @@
+ul.list {
+  list-style-type: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+ul.list li {
+  width: 18rem;
+  height: 6rem;
+  margin: 30px;
+}
+
+ul.list li a:hover {
+  background: #e3f2fd;
+  color: #477698;
+  box-shadow: 0 0 60px #b3cada inset;
+  text-decoration: none;
+}

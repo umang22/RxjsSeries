@@ -11,6 +11,9 @@ import {PaginatorComponent} from "./javabrains/paginator/paginator.component";
 import {CardComponent} from "./javabrains/card/card.component";
 import {TruncatePipe} from "./javabrains/class/truncate.pipe";
 import {BlogDataService} from "./javabrains/service/blog-data.service";
+import {ObservableComponent} from './observable/observable.component';
+import {ListComponent} from './observable/list/list.component';
+import {FormEventComponent} from './observable/form-event/form-event.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import {BlogDataService} from "./javabrains/service/blog-data.service";
     TruncatePipe,
     PaginatorComponent,
     CardComponent,
+    ObservableComponent,
+    ListComponent,
+    FormEventComponent,
   ],
   imports: [
     BrowserModule,
