@@ -1,0 +1,8 @@
+<ul class="pagination">
+  <!--<li class="page-item"><a class="page-link" >Previous</a></li>-->
+  <li *ngFor="let page of pages; index as i" class="page-item">
+    <a (click)="pageNumberClicked(i)" class="page-link">{{i + 1}}</a>
+  </li>
+  <!--<li class="page-item"><a class="page-link" >Next</a></li>-->
+</ul>
+

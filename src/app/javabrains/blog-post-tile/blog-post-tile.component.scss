@@ -1,0 +1,16 @@
+.blog-btn {
+  font-weight: 900;
+}
+
+/* .blog-title{
+    margin:20px;
+} */
+
+//uma dica é: se usar o :host, nao pode usar o ViewEncapsulation
+:host {
+  margin: 20px;
+}
+
+.fav {
+  background-color: lightgray;
+}

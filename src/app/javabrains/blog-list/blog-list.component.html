@@ -1,0 +1,44 @@
+<!--This is the parent component-->
+
+<!--Naturalmente, o conteúdo de h1 e p não vão aparecer na tela "de graça", porque o angular delega-->
+<!--a apresentação do conteúdo para o app-card, e não leva em consideração o que esta entre o seletor-->
+<!--para esta ideia funcionar tem que usar o seletor ng content-->
+<!--esta é uma boa prática para fazer componentes reusáveis-->
+<app-card>
+  <h1>Heading</h1>
+  <p>Para</p>
+</app-card>
+
+<!-- esta é uma maneira de trazer informações diferentes para diferentes instancias do mesmo seletor-->
+<!-- <app-blog-post-tile title="Blog Title 1" summary="Summary of post 1"></app-blog-post-tile> -->
+
+<!-- Esta é outra maneira, utilizando uma instancia de uma classe, hardcoded -->
+<!-- <app-blog-post-tile post="blogPosts[0]"></app-blog-post-tile> -->
+
+<!-- A maneira abaixo funciona, mas não é elegante -->
+<!-- <app-blog-post-tile [post]="blogPosts[0]"></app-blog-post-tile>
+<app-blog-post-tile [post]="blogPosts[1]"></app-blog-post-tile>
+<app-blog-post-tile [post]="blogPosts[2]"></app-blog-post-tile>
+<app-blog-post-tile [post]="blogPosts[3]"></app-blog-post-tile> -->
+<app-card>
+  <p><a (click)="expandAll()">Expand All </a></p>
+  <p><a (click)="favoriteAll()"> Favorite All</a></p>
+</app-card>
+
+<!--desta maneira, vai mostrar a lista de posts,  usando o view child, mas só vai expandir o primeiro-->
+<app-blog-post-tile #tile *ngFor="let post of blogPosts[currentPage]" [post]="post">
+</app-blog-post-tile>
+
+<!--Este #tile é o nome da referencia usada no @ViewChild pelo blog-list.component.ts-->
+<!--este trecho abaixo fiz só para dar certo o teste do view child-->
+<!--<app-blog-post-tile [post]="blogPosts[0][0]" #tile></app-blog-post-tile>-->
+
+<app-paginator (pageNumberClick)="updatePage($event)" [numberOfpages]="blogPosts.length">
+</app-paginator>
+
+<!--
+    [numberOfpages]="blogPosts.length"    -> envia dados do parent para o child
+    (pageNumberClick)="updatePage($event) -> manda controller events do child para o parent
+-->
+
+<a class="blog-btn">Test Button</a>
