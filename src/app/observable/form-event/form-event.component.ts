@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {fromEvent} from "rxjs";
+import {DesignUtilityService} from "../../service/design-utility.service";
 
 @Component({
   selector: 'app-form-event',
@@ -10,7 +11,7 @@ export class FormEventComponent implements OnInit, AfterViewInit {
 
   @ViewChild('addBtn', {static: true}) addBtn: ElementRef;
 
-  constructor() {
+  constructor(private dsService: DesignUtilityService) {
   }
 
   ngOnInit() {
@@ -21,17 +22,10 @@ export class FormEventComponent implements OnInit, AfterViewInit {
     fromEvent(this.addBtn.nativeElement, 'click').subscribe(
       res => {
         let countVal = 'Video' + count++;
-        this.print(countVal, 'elContainer');
-        this.print(countVal, 'elContainer1');
+        this.dsService.addCustomLi(countVal, 'elContainer');
+        this.dsService.addCustomLi(countVal, 'elContainer1');
       }
     )
-  }
-
-  print(val, containerId) {
-    let el = document.createElement("li");
-    el.innerHTML = val;
-
-    document.getElementById(containerId).append(el);
   }
 
 
