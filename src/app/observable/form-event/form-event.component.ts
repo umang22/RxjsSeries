@@ -21,6 +21,7 @@ export class FormEventComponent implements OnInit, AfterViewInit {
     let count = 1;
     fromEvent(this.addBtn.nativeElement, 'click').subscribe(
       res => {
+        console.log("this.addBtn.nativeElement", this.addBtn);
         let countVal = 'Video' + count++;
         this.dsService.addCustomLi(countVal, 'elContainer');
         this.dsService.addCustomLi(countVal, 'elContainer1');

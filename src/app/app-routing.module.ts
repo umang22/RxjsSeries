@@ -7,6 +7,9 @@ import {ObservableComponent} from "./observable/observable.component";
 import {ListComponent} from "./observable/list/list.component";
 import {FormEventComponent} from "./observable/form-event/form-event.component";
 import {IntervalComponent} from "./observable/interval/interval.component";
+import {OfFromComponent} from "./observable/of-from/of-from.component";
+import {ToArrayComponent} from "./observable/to-array/to-array.component";
+import {CustomComponent} from "./observable/custom/custom.component";
 
 const routes: Routes = [
   {path: 'promise', component: PromiseComponent},
@@ -14,7 +17,10 @@ const routes: Routes = [
     path: 'observable', component: ObservableComponent, children: [
       {path: '', component: ListComponent},
       {path: 'formEvent', component: FormEventComponent},
-      {path: 'interval', component: IntervalComponent}
+      {path: 'interval', component: IntervalComponent},
+      {path: 'ofFrom', component: OfFromComponent},
+      {path: 'toArray', component: ToArrayComponent},
+      {path: 'custom', component: CustomComponent}
     ]
   },
   {path: 'blogList', component: BlogListComponent},
