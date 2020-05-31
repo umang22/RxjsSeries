@@ -81,11 +81,11 @@ export class CustomComponent implements OnInit, OnDestroy {
       setInterval(() => {
         observer.next(Arr3[(count)]);
         if (count >= 7) {
-          observer.complete()
+          observer.complete();
           // observer.error(new Error('Errrrrror'))
         }
         if (count >= 5) {
-          observer.error(new Error("danger"));
+          // observer.error(new Error("danger"));
         }
         count++;
       }, 1000)
