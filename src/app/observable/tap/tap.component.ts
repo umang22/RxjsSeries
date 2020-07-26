@@ -50,8 +50,6 @@ export class TapComponent implements OnInit {
     ).subscribe((res) => {
       this.ds.addCustomLi(res, 'elContainer2');
     });
-
-
   }
 
 }

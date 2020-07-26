@@ -22,6 +22,14 @@ import {MapComponent} from './observable/map/map.component';
 import {PluckComponent} from './observable/pluck/pluck.component';
 import {FilterComponent} from './observable/filter/filter.component';
 import {TapComponent} from './observable/tap/tap.component';
+import {FlatMapComponent} from './observable/flat-map/flat-map.component';
+import {MergeMapComponent} from './observable/merge-map/merge-map.component';
+import {ConcatMapComponent} from './observable/concat-map/concat-map.component';
+import {ReduceComponent} from './observable/reduce/reduce.component';
+import {StartWithComponent} from './observable/start-with/start-with.component';
+import {SwitchMapComponent} from './observable/switch-map/switch-map.component';
+import {AsyncSubjectComponent} from './observable/async-subject/async-subject.component';
+import {ReplaySubjectComponent} from './observable/replay-subject/replay-subject.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +52,14 @@ import {TapComponent} from './observable/tap/tap.component';
     PluckComponent,
     FilterComponent,
     TapComponent,
+    FlatMapComponent,
+    MergeMapComponent,
+    ConcatMapComponent,
+    ReduceComponent,
+    StartWithComponent,
+    SwitchMapComponent,
+    AsyncSubjectComponent,
+    ReplaySubjectComponent,
   ],
   imports: [
     BrowserModule,
